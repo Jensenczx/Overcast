@@ -4,7 +4,13 @@ package com.chenjensen.overcast.module.base.presenter;
  * Created by chenjensen on 17/1/10.
  */
 
-public abstract class BasePresenter {
+public abstract class BasePresenter<T> {
+
+    protected T target;
+
+    public BasePresenter(T target) {
+        this.target = target;
+    }
 
     public void onCreate() {
 

@@ -30,6 +30,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected abstract void initPresenter();
 
+    protected abstract void initBaseView();
+
+    protected abstract void initContentView();
+
     public void setRealContent(int resId) {
         getLayoutInflater().inflate(resId, contentView);
     }
@@ -37,21 +41,29 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onStart() {
         super.onStart();
+        if(presenter != null)
+            presenter.onStart();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        if(presenter != null)
+            presenter.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        if(presenter != null)
+            presenter.onPause();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        if(presenter != null)
+            presenter.onStop();
     }
 
     @Override
